@@ -1,0 +1,58 @@
+{
+    "stages": [
+        {
+            "id": 1,
+            "name": "знакомство",
+            "fields": [
+                {"field": "name", "question": "Как к вам можно обращаться?"},
+                {"field": "location", "question": "Где вы планируете размещать?"}
+            ]
+        },
+        {
+            "id": 2,
+            "name": "потребности",
+            "pitch": {
+                "keywords": ["не интересует", "просто смотрю"],
+                "text": "Наше решение снижает затраты на охлаждение до 30 % и повышает надёжность."
+            },
+            "fields": [
+                {"field": "rigs_owned",  "question": "Сколько майнеров у вас уже есть?"},
+                {"field": "rigs_plan",   "question": "Сколько ещё устройств планируете купить?"},
+                {"field": "host_choice","question": "Где будете хостить: у себя или у нас?"},
+                {
+                    "field": "electricity_price",
+                    "question": "Какая у вас стоимость электричества (₽/кВт⋅ч)?",
+                    "condition_field": "host_choice",
+                    "condition_values": ["свой"]
+                },
+                {
+                    "field": "free_power",
+                    "question": "Сколько кВт свободных нужно на нашем хостинге?",
+                    "condition_field": "host_choice",
+                    "condition_values": ["хостинг", "наш"]
+                },
+                {"field": "budget",      "question": "Какой бюджет на покупку (в рублях)?"}
+            ]
+        },
+        {
+            "id": 3,
+            "name": "презентация",
+            "fields": []
+        },
+        {
+            "id": 4,
+            "name": "закрытие",
+            "fields": [
+                {"field": "phone",     "question": "Оставьте, пожалуйста, телефон или Telegram."},
+                {"field": "call_time", "question": "Когда Вам удобно созвониться?"}
+            ]
+        }
+    ],
+    "override_keywords": {
+        "купить": 4,
+        "оформить": 4,
+        "связаться": 4,
+        "хочу": 4,
+        "хотел": 4
+    }
+}
